@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
 
-      emailjs.sendForm('service_in3m63s', 'template_eyszlby', this)
+      emailjs.sendForm('service_in3m63s', 'template_rlh2bwq', this)
         .then(function() {
           alert('Message sent successfully!');
           contactForm.reset();
@@ -58,4 +58,20 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   type();
+  // Hire button scroll and autofill
+  const hireBtn = document.querySelector('.hero-buttons .btn.accent-bg');
+  if (hireBtn) {
+    hireBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const contactSection = document.getElementById('contact');
+      const subjectInput = document.querySelector('input[name="subject"]');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+      if (subjectInput) {
+        subjectInput.value = "Hiring Inquiry";
+        subjectInput.readOnly = true;
+      }
+    });
+  }
 });
